@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TouchableOpacity, KeyboardAvoidingView, Platform, ImageBackground } from 'react-native';
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { Text, TextInput, Button, Surface } from 'react-native-paper';
 import { router } from 'expo-router';
 import { brandColors } from '../constants/Colors';
@@ -41,8 +41,6 @@ export default function LoginScreen() {
           keyboardType="phone-pad"
           maxLength={10}
           style={styles.input}
-          outlineColor={brandColors.primary[200]}
-          activeOutlineColor={brandColors.primary[500]}
           left={<TextInput.Affix text="+91" />}
         />
 
@@ -53,11 +51,9 @@ export default function LoginScreen() {
           onChangeText={setPassword}
           secureTextEntry={!showPassword}
           style={styles.input}
-          outlineColor={brandColors.primary[200]}
-          activeOutlineColor={brandColors.primary[500]}
           right={
-            <TextInput.Icon 
-              icon={showPassword ? "eye-off" : "eye"} 
+            <TextInput.Icon
+              icon={showPassword ? "eye-off" : "eye"}
               onPress={() => setShowPassword(!showPassword)}
             />
           }
@@ -168,4 +164,5 @@ const styles = StyleSheet.create({
     color: brandColors.primary[500],
     fontWeight: 'bold',
   },
-}); 
+});
+

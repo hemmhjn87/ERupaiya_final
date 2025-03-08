@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, FlatList } from 'react-native';
 import { View } from '../../components/Themed';
-import { Text, List, Divider } from 'react-native-paper';
+import { Text, Divider, List } from 'react-native-paper'; // Ensure List is correctly imported
 import { Transaction } from '../../src/types';
 
 const RECENT_TRANSACTIONS: Transaction[] = [
@@ -18,9 +18,9 @@ export default function TransfersScreen() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <List.Item
-            title={item.name}
-            description={item.date}
-            right={props => (
+            title={() => <Text style={styles.title}>{item.name}</Text>} // Ensuring proper title rendering
+            description={() => <Text style={styles.description}>{item.date}</Text>}
+            right={() => (
               <View style={styles.amountContainer}>
                 <Text style={styles.amount}>{item.amount}</Text>
                 <Text style={styles.type}>{item.type}</Text>
@@ -37,6 +37,8 @@ export default function TransfersScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
+    padding: 10,
   },
   amountContainer: {
     alignItems: 'flex-end',
@@ -44,8 +46,18 @@ const styles = StyleSheet.create({
   },
   amount: {
     fontWeight: 'bold',
+    fontSize: 16,
+    color: '#000',
   },
   type: {
+    fontSize: 12,
+    color: '#666',
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  description: {
     fontSize: 12,
     color: '#666',
   },
