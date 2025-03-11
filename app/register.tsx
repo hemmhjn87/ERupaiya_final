@@ -18,15 +18,11 @@ export default function RegisterScreen() {
     confirmPassword: '',
   });
   const [showPassword, setShowPassword] = useState(false);
-
   const handleSubmit = () => {
-    // Validate form
     if (!validateForm()) return;
-    
-    // Navigate to verification screen or login
     router.replace('/login');
   };
-
+  
   const validateForm = () => {
     // Basic validation
     if (formData.fullName.length < 3) {

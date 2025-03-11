@@ -3,6 +3,7 @@ import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { Text, TextInput, Button, Surface } from 'react-native-paper';
 import { router } from 'expo-router';
 import { brandColors } from '../constants/Colors';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function LoginScreen() {
   const [mobile, setMobile] = useState('');
